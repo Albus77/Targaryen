@@ -47,11 +47,11 @@
         <button class="btn btn-primary mt-2" onclick="checkLogin()">Submit</button>
     </div>
     
-    <div class="content hidden" id="surprise">
+    <div class="content hidden" id="surprise" style="display: none;">
         <h1 class="hidden-message">Happy Birthday, My Love! 🎉</h1>
     </div>
     
-    <div class="hidden" id="journey-page">
+    <div class="hidden" id="journey-page" style="display: none;">
         <h2>Our Journey</h2>
         <div class="gallery">
             <img src="https://via.placeholder.com/200" alt="Memory 1">
@@ -62,7 +62,7 @@
         <button class="btn btn-success mt-2" onclick="showLetter()">Surprise</button>
     </div>
     
-    <div class="hidden letter-container" id="letter-page">
+    <div class="hidden letter-container" id="letter-page" style="display: none;">
         <h2>My Final Letter</h2>
         <p>Dear love, this journey with you has been the best...</p>
         <button class="btn btn-danger mt-2" onclick="logout()">Logout</button>
@@ -74,10 +74,10 @@
             let pass = document.getElementById("password").value;
             if(id === "1032222260@mitwpu.edu.in" && pass === "Mit@2025") {
                 document.getElementById("login-page").style.display = "none";
-                document.getElementById("surprise").classList.remove("hidden");
+                document.getElementById("surprise").style.display = "block";
                 setTimeout(() => {
                     document.getElementById("surprise").style.display = "none";
-                    document.getElementById("journey-page").classList.remove("hidden");
+                    document.getElementById("journey-page").style.display = "block";
                 }, 5000);
             } else {
                 alert("Invalid credentials!");
@@ -85,7 +85,7 @@
         }
         function showLetter() {
             document.getElementById("journey-page").style.display = "none";
-            document.getElementById("letter-page").classList.remove("hidden");
+            document.getElementById("letter-page").style.display = "block";
         }
         function logout() {
             location.reload();
