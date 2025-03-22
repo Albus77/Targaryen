@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .hidden { display: none; }
+        .login-container, .content, .letter-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .gallery img {
+            width: 200px;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .hidden-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4081;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="login-page">
+        <h2>Exam Results Login</h2>
+        <input type="text" id="userID" placeholder="Enter ID"><br>
+        <input type="password" id="password" placeholder="Enter Password"><br>
+        <button class="btn btn-primary mt-2" onclick="checkLogin()">Submit</button>
+    </div>
+    
+    <div class="content hidden" id="surprise">
+        <h1 class="hidden-message">Happy Birthday, My Love! 🎉</h1>
+    </div>
+    
+    <div class="hidden" id="journey-page">
+        <h2>Our Journey</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/200" alt="Memory 1">
+            <p>Our first trip together ❤️</p>
+            <img src="https://via.placeholder.com/200" alt="Memory 2">
+            <p>That unforgettable moment 😊</p>
+        </div>
+        <button class="btn btn-success mt-2" onclick="showLetter()">Surprise</button>
+    </div>
+    
+    <div class="hidden letter-container" id="letter-page">
+        <h2>My Final Letter</h2>
+        <p>Dear love, this journey with you has been the best...</p>
+        <button class="btn btn-danger mt-2" onclick="logout()">Logout</button>
+    </div>
+    
+    <script>
+        function checkLogin() {
+            let id = document.getElementById("userID").value;
+            let pass = document.getElementById("password").value;
+            if(id === "1032222260@mitwpu.edu.in" && pass === "Mit@2025") {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("surprise").classList.remove("hidden");
+                setTimeout(() => {
+                    document.getElementById("surprise").style.display = "none";
+                    document.getElementById("journey-page").classList.remove("hidden");
+                }, 5000);
+            } else {
+                alert("Invalid credentials!");
+            }
+        }
+        function showLetter() {
+            document.getElementById("journey-page").style.display = "none";
+            document.getElementById("letter-page").classList.remove("hidden");
+        }
+        function logout() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
